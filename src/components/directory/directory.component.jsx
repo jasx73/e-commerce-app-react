@@ -18,26 +18,31 @@ export default class Directory extends Component {
           title: "BOOKS",
           imageUrl: 'https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-1024x640.jpeg',
           id: 1,
+          linkUrl: 'books'
         },
         {
           title: "ELECTRONICS",
           imageUrl: 'https://i0.wp.com/movingtips.wpengine.com/wp-content/uploads/2017/01/appliances.jpg?fit=600%2C360&ssl=1',
           id: 2,
+          linkUrl: 'electronics'
         },
         {
           title: "FURNITURE",
           imageUrl: 'https://www.betterhomeindia.com/wp-content/uploads/2019/03/flora-bedroomset-betterhomeindia.jpg',
           id: 3,
+          linkUrl: 'furniture'
         },
         {
           title: "WOMENS",
           imageUrl: "https://styleyesfashioncrate.com/wp-content/uploads/2019/07/Styleyes-Fashion-Crate-10-Womens-Fashion-Trends-Making-A-Comeback-In-2019.jpg",
           id: 4,
+          linkUrl: 'womens'
         },
         {
           title: "MENS",
           imageUrl: 'https://images.indianexpress.com/2018/01/men-fashion-759-filephoto.jpg',
           id: 5,
+          linkUrl:'mens'
         },
       ],
     };
@@ -46,8 +51,8 @@ export default class Directory extends Component {
   render() {
     return (
       <div className="directory-menu">
-        {this.state.sections.map(({ title, imageUrl, id, size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        {this.state.sections.map(({id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
         ))}
       </div>
     );
